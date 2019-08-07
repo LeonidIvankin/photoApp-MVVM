@@ -27,7 +27,7 @@
 
         <ImageView
             android:id="@+id/image_view_item_main"
-            android:onClick="@{() -> viewModel.showDetailFragment(photo.id)}"
+            android:onClick="@{() -> viewModel.showPhotoId(photo.id)}"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@color/colorPrimary" />

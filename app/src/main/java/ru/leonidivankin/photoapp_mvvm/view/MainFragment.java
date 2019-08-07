@@ -9,6 +9,7 @@ import androidx.navigation.NavController;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ public class MainFragment extends Fragment {
 
     private NavController navController;
     private FragmentMainBinding binding;
+    private MainViewModel mainViewModel;
 
 
     public MainFragment() {
@@ -50,8 +52,16 @@ public class MainFragment extends Fragment {
 
         //todo simplify
         binding = DataBindingUtil.setContentView(getActivity(), R.layout.fragment_main);
-        initRecyclerView(list, binding);
 
+
+        mainViewModel = new MainViewModel();
+
+        mainViewModel.getPhotoId().observe(this, value -> {
+            Log.d(TAG, "onCreateView: " + value);
+        });
+
+
+        initRecyclerView(list, binding);
 
 //        navController = Navigation.findNavController(getActivity(), R.id.frame_layout_activity_single);
 //
@@ -71,8 +81,13 @@ public class MainFragment extends Fragment {
         RecyclerView recyclerView = binding.recyclerViewFragmentMain;
         GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), IConstant.RECYCLER_COLUMN_COUNT);
         recyclerView.setLayoutManager(layoutManager);
-        PhotoAdapter adapter = new PhotoAdapter(new MainViewModel(), list);
+
+        PhotoAdapter adapter = new PhotoAdapter(mainViewModel, list);
         recyclerView.setAdapter(adapter);
+    }
+
+    public void showDetailFragment(int photoId){
+        Log.d(TAG, "showDetailFragment: " + photoId);
     }
 
 }
