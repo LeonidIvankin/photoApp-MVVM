@@ -11,10 +11,6 @@ import android.view.ViewGroup;
 
 import ru.leonidivankin.photoapp_mvvm.R;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class DetailFragment extends Fragment {
 
 

@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.SingleActivity">
 
+    <!--todo simplify-->
     <fragment
         android:id="@+id/frame_layout_activity_single"
         android:name="androidx.navigation.fragment.NavHostFragment"

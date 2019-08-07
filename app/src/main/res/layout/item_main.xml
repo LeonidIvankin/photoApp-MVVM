@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <data>
+        <variable
+            name="photo"
+            type="ru.leonidivankin.photoapp_mvvm.model.Photo" />
+    </data>
+
+    <!--todo simplify-->
+    <!--todo delete hardcode-->
+    <LinearLayout
+        android:layout_margin="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--todo simplify-->
+        <!--todo delete hardcode-->
+        <TextView
+            android:text="@{photo.name}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/image_view_item_main"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@color/colorPrimary" />
+
+    </LinearLayout>
+
+</layout>
