@@ -6,26 +6,21 @@ import android.os.Bundle;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import ru.leonidivankin.photoapp_mvvm.R;
 import ru.leonidivankin.photoapp_mvvm.databinding.FragmentMainBinding;
 import ru.leonidivankin.photoapp_mvvm.model.Photo;
 import ru.leonidivankin.photoapp_mvvm.model.utils.IConstant;
-import ru.leonidivankin.photoapp_mvvm.viewModel.PhotoViewModel;
+import ru.leonidivankin.photoapp_mvvm.viewModel.MainViewModel;
 
 public class MainFragment extends Fragment {
 
@@ -76,7 +71,7 @@ public class MainFragment extends Fragment {
         RecyclerView recyclerView = binding.recyclerViewFragmentMain;
         GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), IConstant.RECYCLER_COLUMN_COUNT);
         recyclerView.setLayoutManager(layoutManager);
-        PhotoAdapter adapter = new PhotoAdapter(new PhotoViewModel(), list);
+        PhotoAdapter adapter = new PhotoAdapter(new MainViewModel(), list);
         recyclerView.setAdapter(adapter);
     }
 
