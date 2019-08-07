@@ -3,6 +3,9 @@
     
     <data>
         <variable
+            name="viewModel"
+            type="ru.leonidivankin.photoapp_mvvm.viewModel.PhotoViewModel" />
+        <variable
             name="photo"
             type="ru.leonidivankin.photoapp_mvvm.model.Photo" />
     </data>
@@ -24,6 +27,7 @@
 
         <ImageView
             android:id="@+id/image_view_item_main"
+            android:onClick="@{() -> viewModel.showDetailFragment(photo.id)}"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@color/colorPrimary" />

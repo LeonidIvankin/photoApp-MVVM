@@ -4,6 +4,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import ru.leonidivankin.photoapp_mvvm.databinding.ItemMainBinding;
 import ru.leonidivankin.photoapp_mvvm.model.Photo;
+import ru.leonidivankin.photoapp_mvvm.viewModel.PhotoViewModel;
 
 public class PhotoHolder extends RecyclerView.ViewHolder {
 
@@ -14,8 +15,9 @@ public class PhotoHolder extends RecyclerView.ViewHolder {
         this.binding = binding;
     }
 
-    public void bind(Photo photo){
+    public void bind(Photo photo, PhotoViewModel photoViewModel){
         binding.setPhoto(photo);
+        binding.setViewModel(photoViewModel);
         binding.executePendingBindings();
     }
 }

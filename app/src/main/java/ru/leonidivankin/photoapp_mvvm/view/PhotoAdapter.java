@@ -13,12 +13,16 @@ import java.util.List;
 import ru.leonidivankin.photoapp_mvvm.R;
 import ru.leonidivankin.photoapp_mvvm.databinding.ItemMainBinding;
 import ru.leonidivankin.photoapp_mvvm.model.Photo;
+import ru.leonidivankin.photoapp_mvvm.viewModel.PhotoViewModel;
 
 public class PhotoAdapter extends RecyclerView.Adapter<PhotoHolder> {
 
-    private List<Photo> list = new ArrayList<>();
+    private PhotoViewModel photoViewModel;
+    private List<Photo> list;
 
-    public void setDate(List<Photo> list){
+
+    public PhotoAdapter(PhotoViewModel photoViewModel, List<Photo> list) {
+        this.photoViewModel = photoViewModel;
         this.list = list;
     }
 
@@ -33,7 +37,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull PhotoHolder holder, int position) {
-        holder.bind(list.get(position));
+        holder.bind(list.get(position), photoViewModel);
     }
 
     @Override
