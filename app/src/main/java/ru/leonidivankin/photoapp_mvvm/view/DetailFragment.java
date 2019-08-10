@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.util.Log;
@@ -15,6 +14,7 @@ import android.view.ViewGroup;
 
 import ru.leonidivankin.photoapp_mvvm.R;
 import ru.leonidivankin.photoapp_mvvm.databinding.FragmentDetailBinding;
+import ru.leonidivankin.photoapp_mvvm.model.entity.Photo;
 import ru.leonidivankin.photoapp_mvvm.model.entity.User;
 import ru.leonidivankin.photoapp_mvvm.model.utils.IConstant;
 import ru.leonidivankin.photoapp_mvvm.viewModel.SingleViewModel;
@@ -40,17 +40,19 @@ public class DetailFragment extends Fragment {
         Bundle bundle = getArguments();
         if(bundle != null){
             int photoId = bundle.getInt(IConstant.EXTRA_KEY_PHOTO_ID);
-            viewModel.showPhoto().observe(this, resource -> {
+            viewModel.getPhoto().observe(this, resource -> {
                 if(resource.isSuccess()){
                     Log.d(TAG, "onCreateView: " + resource);
-                    User user = resource.getResource();
-                    if(user != null){
-                        Log.d(TAG, "onCreateView: " + user.login);
-                        Log.d(TAG, "onCreateView: " + user.photoUrl);
+                    Photo photo = resource.getResource();
+                    if(photo != null){
+                        Log.d(TAG, "onCreateView: " + photo);
+                        Log.d(TAG, "onCreateView: " + photo.totalHits);
 
                         //todo организовать через подписку, а не через setUser()
-                        binding.setUser(user);
+                        binding.setPhoto(photo);
                     }
+                } else {
+                    Log.e(TAG, "onCreateView: " + resource.getError());
                 }
 
             });

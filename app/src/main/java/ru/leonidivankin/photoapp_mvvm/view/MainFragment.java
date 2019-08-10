@@ -40,7 +40,7 @@ public class MainFragment extends Fragment {
         List<Photo> list = new ArrayList<>();
 
         for (int i = 1; i <= 16; i++) {
-            list.add(new Photo(i, "photo" + i));
+            list.add(new Photo());
         }
 
         viewModel = ViewModelProviders.of(getActivity()).get(SingleViewModel.class);

@@ -7,8 +7,8 @@
             name="viewModel"
             type="ru.leonidivankin.photoapp_mvvm.viewModel.SingleViewModel" />
         <variable
-            name="user"
-            type="ru.leonidivankin.photoapp_mvvm.model.entity.User" />
+            name="photo"
+            type="ru.leonidivankin.photoapp_mvvm.model.entity.Photo" />
     </data>
 
     <FrameLayout
@@ -21,7 +21,7 @@
             android:background="@android:color/darker_gray"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:photoUrl="@{user.photoUrl}" />
+            app:photoUrl="@{photo.hits.get(0).webformatURL}" />
 
     </FrameLayout>
 

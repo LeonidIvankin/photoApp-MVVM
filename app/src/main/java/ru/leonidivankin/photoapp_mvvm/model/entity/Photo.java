@@ -1,12 +1,16 @@
 package ru.leonidivankin.photoapp_mvvm.model.entity;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
 public class Photo {
+    @Expose
+    @SerializedName("totalHits")
+    public int totalHits;
 
-    public int id;
-    public String name;
-
-    public Photo(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+    @Expose
+    @SerializedName("hits")
+    public List<Hit> hits;
 }
