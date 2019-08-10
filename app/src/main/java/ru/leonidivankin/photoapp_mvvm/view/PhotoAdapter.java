@@ -11,20 +11,23 @@ import java.util.List;
 
 import ru.leonidivankin.photoapp_mvvm.R;
 import ru.leonidivankin.photoapp_mvvm.databinding.ItemMainBinding;
+import ru.leonidivankin.photoapp_mvvm.model.entity.Hit;
 import ru.leonidivankin.photoapp_mvvm.model.entity.Photo;
 import ru.leonidivankin.photoapp_mvvm.viewModel.SingleViewModel;
 
 public class PhotoAdapter extends RecyclerView.Adapter<PhotoHolder> {
 
     private SingleViewModel singleViewModel;
-    private List<Photo> list;
+    private List<Hit> hitList;
 
 
-    public PhotoAdapter(SingleViewModel singleViewModel, List<Photo> list) {
+    public PhotoAdapter(SingleViewModel singleViewModel) {
         this.singleViewModel = singleViewModel;
-        this.list = list;
     }
 
+    public void setHitList(List<Hit> hitList) {
+        this.hitList = hitList;
+    }
 
     @NonNull
     @Override
@@ -36,11 +39,15 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull PhotoHolder holder, int position) {
-        holder.bind(list.get(position), singleViewModel);
+        //todo to viewModel
+        holder.bind(hitList.get(position), singleViewModel);
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        if (hitList != null) {
+            return hitList.size();
+        }
+        return 0;
     }
 }

@@ -39,6 +39,7 @@ public class DetailFragment extends Fragment {
 
         Bundle bundle = getArguments();
         if(bundle != null){
+            //todo удалить запрос
             int photoId = bundle.getInt(IConstant.EXTRA_KEY_PHOTO_ID);
             viewModel.getPhoto().observe(this, resource -> {
                 if(resource.isSuccess()){
