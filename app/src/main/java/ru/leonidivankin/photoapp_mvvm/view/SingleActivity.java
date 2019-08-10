@@ -31,7 +31,6 @@ public class SingleActivity extends AppCompatActivity {
         navController = Navigation.findNavController(this, R.id.frame_layout_activity_single);
 
         viewModel.getPhotoId().observe(this, photoId -> {
-            Log.d(TAG, "onCreate: " + photoId);
             Bundle bundle = new Bundle();
             bundle.putInt(IConstant.EXTRA_KEY_PHOTO_ID, photoId);
             navController.navigate(R.id.action_mainFragment_to_detailFragment, bundle);

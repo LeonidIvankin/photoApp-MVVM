@@ -8,7 +8,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 import ru.leonidivankin.photoapp_mvvm.model.entity.Photo;
-import ru.leonidivankin.photoapp_mvvm.model.entity.User;
 import ru.leonidivankin.photoapp_mvvm.model.utils.IConstant;
 
 public class RetrofitApi {
