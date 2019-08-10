@@ -11,7 +11,7 @@ import androidx.navigation.Navigation;
 import ru.leonidivankin.photoapp.R;
 import ru.leonidivankin.photoapp.viewModel.MainViewModel;
 
-public class SingleActivity extends AppCompatActivity implements MainFragment.I2NavActivity {
+public class SingleActivity extends AppCompatActivity {
 
     private static final String TAG = "SingleActivity";
 
@@ -33,8 +33,4 @@ public class SingleActivity extends AppCompatActivity implements MainFragment.I2
         });
     }
 
-    @Override
-    public void onClickButton() {
-        navController.navigate(R.id.detailFragment);
-    }
 }

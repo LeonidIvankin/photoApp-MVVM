@@ -31,21 +31,14 @@ public class MainFragment extends Fragment {
 
     private FragmentMainBinding binding;
     private MainViewModel viewModel;
-    private Button button;
-    private I2NavActivity i2NavActivity;
 
-    public interface I2NavActivity{
-        void onClickButton();
-    }
+
+
 
     public MainFragment() {
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        i2NavActivity = (I2NavActivity) context;
-    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,15 +61,6 @@ public class MainFragment extends Fragment {
 
 
         initRecyclerView(list, binding);
-
-        button = binding.getRoot().findViewById(R.id.button_fragment_main);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, "onClick: ");
-                i2NavActivity.onClickButton();
-            }
-        });
 
         return binding.getRoot();
     }
