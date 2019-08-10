@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.util.Log;
@@ -37,7 +38,13 @@ public class DetailFragment extends Fragment {
         Bundle bundle = getArguments();
         if(bundle != null){
             int photoId = bundle.getInt(IConstant.EXTRA_KEY_PHOTO_ID);
-            viewModel.showPhoto();
+            viewModel.showPhoto().observe(this, resource -> {
+                if(resource.isSuccess()){
+                    Log.d(TAG, "onCreateView: " + resource);
+                    Log.d(TAG, "onCreateView: " + resource.getResource());
+                }
+
+            });
         }
 
         return binding.getRoot();
