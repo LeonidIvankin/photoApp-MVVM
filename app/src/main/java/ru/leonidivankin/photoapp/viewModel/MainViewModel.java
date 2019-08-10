@@ -1,11 +1,12 @@
-package ru.leonidivankin.photoapp_mvvm.viewModel;
+package ru.leonidivankin.photoapp.viewModel;
 
 import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
-public class MainViewModel {
+public class MainViewModel  extends ViewModel {
 
     private static final String TAG = "MainViewModel";
 
@@ -16,6 +17,7 @@ public class MainViewModel {
     }
 
     public void setPhotoId(int photoId){
+        Log.d(TAG, "setPhotoId: " + photoId);
         pictureIdLiveData.setValue(photoId);
     }
 }

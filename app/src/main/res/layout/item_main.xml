@@ -4,10 +4,10 @@
     <data>
         <variable
             name="viewModel"
-            type="ru.leonidivankin.photoapp_mvvm.viewModel.MainViewModel" />
+            type="ru.leonidivankin.photoapp.viewModel.MainViewModel" />
         <variable
             name="photo"
-            type="ru.leonidivankin.photoapp_mvvm.model.Photo" />
+            type="ru.leonidivankin.photoapp.model.Photo" />
     </data>
 
     <!--todo simplify-->
@@ -27,7 +27,7 @@
 
         <ImageView
             android:id="@+id/image_view_item_main"
-            android:onClick="@{() -> viewModel.showPhotoId(photo.id)}"
+            android:onClick="@{() -> viewModel.setPhotoId(photo.id)}"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@color/colorPrimary" />

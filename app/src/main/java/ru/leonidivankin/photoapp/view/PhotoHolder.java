@@ -1,10 +1,10 @@
-package ru.leonidivankin.photoapp_mvvm.view;
+package ru.leonidivankin.photoapp.view;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import ru.leonidivankin.photoapp_mvvm.databinding.ItemMainBinding;
-import ru.leonidivankin.photoapp_mvvm.model.Photo;
-import ru.leonidivankin.photoapp_mvvm.viewModel.MainViewModel;
+import ru.leonidivankin.photoapp.databinding.ItemMainBinding;
+import ru.leonidivankin.photoapp.model.Photo;
+import ru.leonidivankin.photoapp.viewModel.MainViewModel;
 
 public class PhotoHolder extends RecyclerView.ViewHolder {
 

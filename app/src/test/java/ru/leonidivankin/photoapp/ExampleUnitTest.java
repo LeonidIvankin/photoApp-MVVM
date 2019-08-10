@@ -1,4 +1,4 @@
-package ru.leonidivankin.photoapp_mvvm;
+package ru.leonidivankin.photoapp;
 
 import org.junit.Test;
 

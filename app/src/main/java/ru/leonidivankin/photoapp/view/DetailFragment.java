@@ -1,4 +1,4 @@
-package ru.leonidivankin.photoapp_mvvm.view;
+package ru.leonidivankin.photoapp.view;
 
 
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import ru.leonidivankin.photoapp_mvvm.R;
+import ru.leonidivankin.photoapp.R;
 
 public class DetailFragment extends Fragment {
 
