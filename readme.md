@@ -20,8 +20,8 @@ Room
 +отобразить список фото
 -применть Toothpick
 
--ошибка при повороте экрана
--Application namespace for attribute app:photoUrl will be ignored.
++ошибка при повороте экрана
++Application namespace for attribute app:photoUrl will be ignored.
 
 -Написать тесты
     Mockito
