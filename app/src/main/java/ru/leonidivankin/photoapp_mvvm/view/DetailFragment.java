@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 
 import ru.leonidivankin.photoapp_mvvm.R;
 import ru.leonidivankin.photoapp_mvvm.databinding.FragmentDetailBinding;
+import ru.leonidivankin.photoapp_mvvm.model.entity.User;
 import ru.leonidivankin.photoapp_mvvm.model.utils.IConstant;
 import ru.leonidivankin.photoapp_mvvm.viewModel.SingleViewModel;
 
@@ -32,6 +33,7 @@ public class DetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detail, container, false);
+        binding.setViewModel(viewModel);
 
         viewModel = ViewModelProviders.of(getActivity()).get(SingleViewModel.class);
 
@@ -41,7 +43,14 @@ public class DetailFragment extends Fragment {
             viewModel.showPhoto().observe(this, resource -> {
                 if(resource.isSuccess()){
                     Log.d(TAG, "onCreateView: " + resource);
-                    Log.d(TAG, "onCreateView: " + resource.getResource());
+                    User user = resource.getResource();
+                    if(user != null){
+                        Log.d(TAG, "onCreateView: " + user.login);
+                        Log.d(TAG, "onCreateView: " + user.photoUrl);
+
+                        //todo организовать через подписку, а не через setUser()
+                        binding.setUser(user);
+                    }
                 }
 
             });

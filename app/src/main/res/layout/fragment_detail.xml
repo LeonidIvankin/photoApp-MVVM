@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="ru.leonidivankin.photoapp_mvvm.viewModel.SingleViewModel" />
+        <variable
+            name="user"
+            type="ru.leonidivankin.photoapp_mvvm.model.entity.User" />
+    </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <!--todo androidx.appcompat.widget.AppCompatImageView-->
+        <!--todo photoUrl получать из viewModel-->
+        <ImageView
+            android:background="@android:color/darker_gray"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="text" />
+            app:photoUrl="@{user.photoUrl}" />
 
     </FrameLayout>
 

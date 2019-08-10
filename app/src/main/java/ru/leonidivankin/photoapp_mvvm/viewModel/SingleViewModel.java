@@ -1,13 +1,12 @@
 package ru.leonidivankin.photoapp_mvvm.viewModel;
 
-import android.util.Log;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import ru.leonidivankin.photoapp_mvvm.model.api.Resource;
 import ru.leonidivankin.photoapp_mvvm.model.api.RetrofitApi;
+import ru.leonidivankin.photoapp_mvvm.model.entity.User;
 
 public class SingleViewModel extends ViewModel {
 
@@ -23,14 +22,14 @@ public class SingleViewModel extends ViewModel {
         pictureIdLiveData.setValue(photoId);
     }
 
-    public LiveData<Resource<String>>  showPhoto() {
+    public LiveData<Resource<User>> showPhoto() {
 
         //todo to toothpick
         RetrofitApi retrofitApi = new RetrofitApi();
 
         return retrofitApi.requestServer();
 
-
     }
+
 
 }
