@@ -6,9 +6,9 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class MainViewModel  extends ViewModel {
+public class SingleViewModel extends ViewModel {
 
-    private static final String TAG = "MainViewModel";
+    private static final String TAG = "SingleViewModel";
 
     private MutableLiveData<Integer> pictureIdLiveData = new MutableLiveData<>();
 

@@ -4,7 +4,7 @@
     <data>
         <variable
             name="viewModel"
-            type="ru.leonidivankin.photoapp_mvvm.viewModel.MainViewModel" />
+            type="ru.leonidivankin.photoapp_mvvm.viewModel.SingleViewModel" />
         <variable
             name="photo"
             type="ru.leonidivankin.photoapp_mvvm.model.Photo" />

@@ -16,26 +16,21 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import ru.leonidivankin.photoapp_mvvm.databinding.FragmentMainBinding;
 import ru.leonidivankin.photoapp_mvvm.R;
 import ru.leonidivankin.photoapp_mvvm.model.Photo;
 import ru.leonidivankin.photoapp_mvvm.model.utils.IConstant;
-import ru.leonidivankin.photoapp_mvvm.viewModel.MainViewModel;
-import ru.leonidivankin.photoapp_mvvm.databinding.FragmentMainBinding;
+import ru.leonidivankin.photoapp_mvvm.viewModel.SingleViewModel;
 
 public class MainFragment extends Fragment {
 
     private static final String TAG = "MainFragment";
 
     private FragmentMainBinding binding;
-    private MainViewModel viewModel;
-
-
-
+    private SingleViewModel viewModel;
 
     public MainFragment() {
     }
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,7 +43,7 @@ public class MainFragment extends Fragment {
             list.add(new Photo(i, "photo" + i));
         }
 
-        viewModel = ViewModelProviders.of(getActivity()).get(MainViewModel.class);
+        viewModel = ViewModelProviders.of(getActivity()).get(SingleViewModel.class);
 
         //todo simplify
 //        View view = inflater.inflate(R.layout.fragment_main, container, false);
