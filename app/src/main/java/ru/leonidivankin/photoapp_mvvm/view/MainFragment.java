@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +27,7 @@ public class MainFragment extends Fragment {
     private SingleViewModel viewModel;
     private PhotoAdapter adapter;
 
+
     public MainFragment() {
     }
 
@@ -40,6 +43,7 @@ public class MainFragment extends Fragment {
             adapter.setHitList(listHits);
             adapter.notifyDataSetChanged();
         });
+
 
         return binding.getRoot();
     }

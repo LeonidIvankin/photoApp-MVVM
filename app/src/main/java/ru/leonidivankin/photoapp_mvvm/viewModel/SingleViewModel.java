@@ -23,7 +23,7 @@ public class SingleViewModel extends ViewModel {
 
     private static final String TAG = "SingleViewModel";
 
-    private MutableLiveData<Integer> hitIdLiveData = new MutableLiveData<>();
+    private SingleLiveEvent<Integer> hitIdLiveData = new SingleLiveEvent<>();
     private MutableLiveData<List<Hit>> hitListLiveData = new MutableLiveData<>();
 
     public LiveData<Integer> getHitId() {

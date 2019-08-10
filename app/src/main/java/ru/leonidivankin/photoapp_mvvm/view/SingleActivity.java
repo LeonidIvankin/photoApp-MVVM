@@ -17,9 +17,10 @@ public class SingleActivity extends AppCompatActivity {
 
     private static final String TAG = "SingleActivity";
 
-    private NavController navController;
+
     private SingleViewModel viewModel;
     private ActivitySingleBinding binding;
+    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +31,14 @@ public class SingleActivity extends AppCompatActivity {
         navController = Navigation.findNavController(this, R.id.frame_layout_activity_single);
 
         viewModel.getHitId().observe(this, hitId -> {
-            Bundle bundle = new Bundle();
-            bundle.putInt(IConstant.EXTRA_KEY_HIT_ID, hitId);
-            navController.navigate(R.id.action_mainFragment_to_detailFragment, bundle);
+            if(navController.getCurrentDestination().getId() == R.id.mainFragment){
+                Bundle bundle = new Bundle();
+                bundle.putInt(IConstant.EXTRA_KEY_HIT_ID, hitId);
+                navController.navigate(R.id.action_mainFragment_to_detailFragment, bundle);
+            }
         });
+
+
     }
 
 }

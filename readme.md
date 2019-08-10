@@ -21,6 +21,7 @@ Room
 -применть Toothpick
 
 -ошибка при повороте экрана
+-Application namespace for attribute app:photoUrl will be ignored.
 
 -Написать тесты
     Mockito
