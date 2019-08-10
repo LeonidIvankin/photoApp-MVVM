@@ -1,7 +1,6 @@
 package ru.leonidivankin.photoapp_mvvm.view;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -30,9 +29,9 @@ public class SingleActivity extends AppCompatActivity {
         viewModel = ViewModelProviders.of(this).get(SingleViewModel.class);
         navController = Navigation.findNavController(this, R.id.frame_layout_activity_single);
 
-        viewModel.getPhotoId().observe(this, photoId -> {
+        viewModel.getHitId().observe(this, hitId -> {
             Bundle bundle = new Bundle();
-            bundle.putInt(IConstant.EXTRA_KEY_PHOTO_ID, photoId);
+            bundle.putInt(IConstant.EXTRA_KEY_HIT_ID, hitId);
             navController.navigate(R.id.action_mainFragment_to_detailFragment, bundle);
         });
     }

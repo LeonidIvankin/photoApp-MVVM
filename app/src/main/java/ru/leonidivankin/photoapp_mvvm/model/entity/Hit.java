@@ -6,6 +6,11 @@ import com.google.gson.annotations.SerializedName;
 public class Hit {
 
     @Expose
+    @SerializedName("id")
+    public int id;
+
+    @Expose
     @SerializedName("webformatURL")
     public String webformatURL;
+
 }

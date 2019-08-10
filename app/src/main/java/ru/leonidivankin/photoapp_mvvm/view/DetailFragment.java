@@ -2,6 +2,7 @@ package ru.leonidivankin.photoapp_mvvm.view;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,10 +36,9 @@ public class DetailFragment extends Fragment {
 
         Bundle bundle = getArguments();
         if (bundle != null) {
-            //todo удалить запрос
-            int photoId = bundle.getInt(IConstant.EXTRA_KEY_PHOTO_ID);
-            viewModel.getPhoto().observe(this, listHits -> {
-                binding.setHit(listHits.get(0));
+            int hitId = bundle.getInt(IConstant.EXTRA_KEY_HIT_ID);
+            viewModel.getHitList().observe(this, hitMap -> {
+                binding.setHit(hitMap.get(hitId));
             });
         }
 

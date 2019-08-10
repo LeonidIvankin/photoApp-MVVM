@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="viewModel"
             type="ru.leonidivankin.photoapp_mvvm.viewModel.SingleViewModel" />
@@ -24,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:onClick="@{() -> viewModel.setPhotoId(1)}"
+            android:onClick="@{() -> viewModel.setHitId(hit.id)}"
             android:scaleType="centerCrop"
             app:photoUrl="@{hit.webformatURL}" />
 
