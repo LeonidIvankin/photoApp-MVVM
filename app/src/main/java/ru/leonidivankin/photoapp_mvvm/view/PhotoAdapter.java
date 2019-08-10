@@ -1,4 +1,4 @@
-package ru.leonidivankin.photoapp.view;
+package ru.leonidivankin.photoapp_mvvm.view;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -9,10 +9,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import ru.leonidivankin.photoapp.R;
-import ru.leonidivankin.photoapp.databinding.ItemMainBinding;
-import ru.leonidivankin.photoapp.model.Photo;
-import ru.leonidivankin.photoapp.viewModel.MainViewModel;
+import ru.leonidivankin.photoapp_mvvm.R;
+import ru.leonidivankin.photoapp_mvvm.databinding.ItemMainBinding;
+import ru.leonidivankin.photoapp_mvvm.model.Photo;
+import ru.leonidivankin.photoapp_mvvm.viewModel.MainViewModel;
 
 public class PhotoAdapter extends RecyclerView.Adapter<PhotoHolder> {
 

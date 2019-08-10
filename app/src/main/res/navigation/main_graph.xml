@@ -7,12 +7,12 @@
 
     <activity
         android:id="@+id/singleActivity"
-        android:name="ru.leonidivankin.photoapp.view.SingleActivity"
+        android:name="ru.leonidivankin.photoapp_mvvm.view.SingleActivity"
         android:label="activity_single"
         tools:layout="@layout/activity_single" />
     <fragment
         android:id="@+id/mainFragment"
-        android:name="ru.leonidivankin.photoapp.view.MainFragment"
+        android:name="ru.leonidivankin.photoapp_mvvm.view.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="ru.leonidivankin.photoapp.view.DetailFragment"
+        android:name="ru.leonidivankin.photoapp_mvvm.view.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
 </navigation>

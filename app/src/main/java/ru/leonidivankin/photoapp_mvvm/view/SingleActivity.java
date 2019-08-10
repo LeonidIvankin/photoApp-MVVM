@@ -1,4 +1,4 @@
-package ru.leonidivankin.photoapp.view;
+package ru.leonidivankin.photoapp_mvvm.view;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -8,8 +8,8 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import ru.leonidivankin.photoapp.R;
-import ru.leonidivankin.photoapp.viewModel.MainViewModel;
+import ru.leonidivankin.photoapp_mvvm.R;
+import ru.leonidivankin.photoapp_mvvm.viewModel.MainViewModel;
 
 public class SingleActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package ru.leonidivankin.photoapp.model;
+package ru.leonidivankin.photoapp_mvvm.model;
 
 public class Photo {
 

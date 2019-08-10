@@ -4,10 +4,10 @@
     <data>
         <variable
             name="viewModel"
-            type="ru.leonidivankin.photoapp.viewModel.MainViewModel" />
+            type="ru.leonidivankin.photoapp_mvvm.viewModel.MainViewModel" />
         <variable
             name="photo"
-            type="ru.leonidivankin.photoapp.model.Photo" />
+            type="ru.leonidivankin.photoapp_mvvm.model.Photo" />
     </data>
 
     <!--todo simplify-->

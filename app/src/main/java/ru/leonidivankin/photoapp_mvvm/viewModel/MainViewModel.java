@@ -1,4 +1,4 @@
-package ru.leonidivankin.photoapp.viewModel;
+package ru.leonidivankin.photoapp_mvvm.viewModel;
 
 import android.util.Log;
 
