@@ -19,6 +19,8 @@ Room
 +перейти на pixabay
 +отобразить список фото
 -применть Toothpick
+-кеширование фотографий в хранилище
+-кеширование ссылок на фотографии в Room
 
 +ошибка при повороте экрана
 +Application namespace for attribute app:photoUrl will be ignored.

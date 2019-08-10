@@ -13,15 +13,26 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.inject.Inject;
+
 import ru.leonidivankin.photoapp_mvvm.model.api.Resource;
 import ru.leonidivankin.photoapp_mvvm.model.api.RetrofitApi;
 import ru.leonidivankin.photoapp_mvvm.model.entity.Hit;
 import ru.leonidivankin.photoapp_mvvm.model.entity.Photo;
 import ru.leonidivankin.photoapp_mvvm.model.utils.IConstant;
+import toothpick.Scope;
+import toothpick.Toothpick;
 
 public class SingleViewModel extends ViewModel {
 
     private static final String TAG = "SingleViewModel";
+
+    @Inject
+    RetrofitApi retrofitApi;
+
+    public SingleViewModel() {
+        Toothpick.inject(this, Toothpick.openScope(IConstant.TOOTH_PICK_SCOPE));
+    }
 
     private SingleLiveEvent<Integer> hitIdLiveData = new SingleLiveEvent<>();
     private MutableLiveData<List<Hit>> hitListLiveData = new MutableLiveData<>();
@@ -49,10 +60,6 @@ public class SingleViewModel extends ViewModel {
     }
 
     public LiveData<List<Hit>> getPhoto() {
-
-        //todo to toothpick
-        RetrofitApi retrofitApi = new RetrofitApi();
-
         LiveData<Resource<Photo>> photoLiveData = retrofitApi.requestServer(IConstant.PIXABAY_KEY);
 
         return Transformations.map(photoLiveData, resource -> {
@@ -67,7 +74,7 @@ public class SingleViewModel extends ViewModel {
                 Log.e(TAG, "getPhoto: " + resource.getError());
             }
 
-            return new ArrayList<Hit>();
+            return new ArrayList<>();
         });
 
     }
