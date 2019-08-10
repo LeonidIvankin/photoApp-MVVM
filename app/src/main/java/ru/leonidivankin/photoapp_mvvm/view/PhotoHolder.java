@@ -3,7 +3,7 @@ package ru.leonidivankin.photoapp_mvvm.view;
 import androidx.recyclerview.widget.RecyclerView;
 
 import ru.leonidivankin.photoapp_mvvm.databinding.ItemMainBinding;
-import ru.leonidivankin.photoapp_mvvm.model.Photo;
+import ru.leonidivankin.photoapp_mvvm.model.entity.Photo;
 import ru.leonidivankin.photoapp_mvvm.viewModel.SingleViewModel;
 
 public class PhotoHolder extends RecyclerView.ViewHolder {

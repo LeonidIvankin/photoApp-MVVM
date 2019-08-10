@@ -7,7 +7,7 @@
             type="ru.leonidivankin.photoapp_mvvm.viewModel.SingleViewModel" />
         <variable
             name="photo"
-            type="ru.leonidivankin.photoapp_mvvm.model.Photo" />
+            type="ru.leonidivankin.photoapp_mvvm.model.entity.Photo" />
     </data>
 
     <!--todo simplify-->

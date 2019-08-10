@@ -11,7 +11,7 @@ import java.util.List;
 
 import ru.leonidivankin.photoapp_mvvm.R;
 import ru.leonidivankin.photoapp_mvvm.databinding.ItemMainBinding;
-import ru.leonidivankin.photoapp_mvvm.model.Photo;
+import ru.leonidivankin.photoapp_mvvm.model.entity.Photo;
 import ru.leonidivankin.photoapp_mvvm.viewModel.SingleViewModel;
 
 public class PhotoAdapter extends RecyclerView.Adapter<PhotoHolder> {

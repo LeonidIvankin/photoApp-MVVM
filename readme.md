@@ -1,15 +1,23 @@
 Применить:
 
-SingleActivity
-Navigation
-MVVM
++SingleActivity
++Navigation
++MVVM
 Toothpick
 Room
++LiveData
++ViewModel
 
-Алгоритм
+Алгоритм:
+
 +Запустить Fragment с помощью navigation
 +Сделать переход по фрагментам
--Добавить RecyclerView с отображением тестовых фото
++Добавить RecyclerView с отображением тестовых фото
+-Добавить Retrofit
 
 
 -Написать тесты
+    Mockito
+    espresso
+    robolectric
+-Выложить на GitHub

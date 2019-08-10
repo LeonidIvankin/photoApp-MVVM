@@ -18,7 +18,7 @@ import java.util.List;
 
 import ru.leonidivankin.photoapp_mvvm.databinding.FragmentMainBinding;
 import ru.leonidivankin.photoapp_mvvm.R;
-import ru.leonidivankin.photoapp_mvvm.model.Photo;
+import ru.leonidivankin.photoapp_mvvm.model.entity.Photo;
 import ru.leonidivankin.photoapp_mvvm.model.utils.IConstant;
 import ru.leonidivankin.photoapp_mvvm.viewModel.SingleViewModel;
 
