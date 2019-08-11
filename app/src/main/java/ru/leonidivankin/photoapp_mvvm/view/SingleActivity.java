@@ -15,9 +15,6 @@ import ru.leonidivankin.photoapp_mvvm.viewModel.SingleViewModel;
 
 public class SingleActivity extends AppCompatActivity {
 
-    private static final String TAG = "SingleActivity";
-
-
     private SingleViewModel viewModel;
     private ActivitySingleBinding binding;
     private NavController navController;
@@ -31,7 +28,7 @@ public class SingleActivity extends AppCompatActivity {
         navController = Navigation.findNavController(this, R.id.frame_layout_activity_single);
 
         viewModel.getHitId().observe(this, hitId -> {
-            if(navController.getCurrentDestination().getId() == R.id.mainFragment){
+            if (navController.getCurrentDestination().getId() == R.id.mainFragment) {
                 Bundle bundle = new Bundle();
                 bundle.putInt(IConstant.EXTRA_KEY_HIT_ID, hitId);
                 navController.navigate(R.id.action_mainFragment_to_detailFragment, bundle);

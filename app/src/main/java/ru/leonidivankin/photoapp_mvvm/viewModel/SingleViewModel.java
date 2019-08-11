@@ -2,7 +2,6 @@ package ru.leonidivankin.photoapp_mvvm.viewModel;
 
 import android.util.Log;
 
-import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
@@ -23,7 +22,6 @@ import ru.leonidivankin.photoapp_mvvm.model.entity.Photo;
 import ru.leonidivankin.photoapp_mvvm.model.utils.IConstant;
 import ru.leonidivankin.photoapp_mvvm.model.utils.NetworkStatus;
 import ru.leonidivankin.photoapp_mvvm.view.EMessage;
-import toothpick.Scope;
 import toothpick.Toothpick;
 
 public class SingleViewModel extends ViewModel {
@@ -86,7 +84,7 @@ public class SingleViewModel extends ViewModel {
                 }
             } else {
                 Log.e(TAG, "getPhoto: " + resource.getError());
-                if(!networkStatus.isConnected()){
+                if (!networkStatus.isConnected()) {
                     eMessageLiveData.setValue(EMessage.NETWORK_IS_NOT_AVAILABLE);
                 }
             }

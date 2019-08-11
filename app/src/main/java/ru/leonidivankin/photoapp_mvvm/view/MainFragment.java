@@ -2,7 +2,6 @@ package ru.leonidivankin.photoapp_mvvm.view;
 
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,24 +13,17 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import javax.inject.Inject;
-
 import ru.leonidivankin.photoapp_mvvm.R;
 import ru.leonidivankin.photoapp_mvvm.databinding.FragmentMainBinding;
 import ru.leonidivankin.photoapp_mvvm.model.utils.IConstant;
-import ru.leonidivankin.photoapp_mvvm.model.utils.NetworkStatus;
 import ru.leonidivankin.photoapp_mvvm.viewModel.SingleViewModel;
 import toothpick.Toothpick;
 
 public class MainFragment extends Fragment {
 
-    private static final String TAG = "MainFragment";
-
     private FragmentMainBinding binding;
     private SingleViewModel viewModel;
     private PhotoAdapter adapter;
-
-
 
 
     public MainFragment() {

@@ -2,7 +2,6 @@ package ru.leonidivankin.photoapp_mvvm.view;
 
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +17,6 @@ import ru.leonidivankin.photoapp_mvvm.model.utils.IConstant;
 import ru.leonidivankin.photoapp_mvvm.viewModel.SingleViewModel;
 
 public class DetailFragment extends Fragment {
-
-    private static final String TAG = "DetailFragment";
 
     private FragmentDetailBinding binding;
     private SingleViewModel viewModel;

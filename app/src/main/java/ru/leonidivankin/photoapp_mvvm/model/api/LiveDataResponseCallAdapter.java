@@ -22,7 +22,6 @@ public final class LiveDataResponseCallAdapter<R> implements CallAdapter<R, Live
         return responseType;
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public LiveData<Resource<Response<R>>> adapt(Call<R> call) {
         final MutableLiveData<Resource<Response<R>>> liveDataResponse = new MutableLiveData<>();
@@ -43,11 +42,10 @@ public final class LiveDataResponseCallAdapter<R> implements CallAdapter<R, Live
             liveData.postValue(Response.success(Resource.success(response.body())));
         }
 
-        @SuppressWarnings("unchecked")
         @Override
         public void onFailure(Call<T> call, Throwable t) {
             if (call.isCanceled()) return;
-            liveData.postValue(Response.<Resource<T>>success(Resource.error(t)));
+            liveData.postValue(Response.success(Resource.error(t)));
         }
     }
 }

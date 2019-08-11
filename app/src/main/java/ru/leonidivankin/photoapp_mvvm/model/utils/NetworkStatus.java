@@ -8,8 +8,6 @@ import android.net.NetworkRequest;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
 import javax.inject.Inject;
 
@@ -32,7 +30,7 @@ public class NetworkStatus {
                 .addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
                 .build();
 
-        connectivityManager.registerNetworkCallback(networkRequest, new ConnectivityManager.NetworkCallback(){
+        connectivityManager.registerNetworkCallback(networkRequest, new ConnectivityManager.NetworkCallback() {
             @Override
             public void onAvailable(@NonNull Network network) {
                 connected = true;
@@ -48,7 +46,7 @@ public class NetworkStatus {
         });
     }
 
-    public boolean isConnected(){
+    public boolean isConnected() {
         return connected;
     }
 

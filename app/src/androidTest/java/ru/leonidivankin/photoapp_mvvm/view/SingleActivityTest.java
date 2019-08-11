@@ -1,10 +1,6 @@
 package ru.leonidivankin.photoapp_mvvm.view;
 
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.test.espresso.IdlingRegistry;
 import androidx.test.espresso.ViewInteraction;
@@ -13,9 +9,6 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
 
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -50,7 +43,6 @@ public class SingleActivityTest {
 
     @Test
     public void singleActivityTest() {
-        RecyclerView recyclerView = activityTestRule.getActivity().findViewById(R.id.recycler_view_fragment_main);
         ViewInteraction appCompatImageView = onView(
                 allOf(withId(R.id.recycler_view_fragment_main), isDisplayed()));
         appCompatImageView.perform(RecyclerViewActions.actionOnItemAtPosition(1, click()));
