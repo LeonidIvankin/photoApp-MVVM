@@ -21,9 +21,9 @@ public class NetworkStatus {
 
     private final ConnectivityManager connectivityManager;
     private final NetworkRequest networkRequest;
-    private MutableLiveData<Boolean> connectedLiveData = new MutableLiveData<>();
+    private boolean connected;
 
-
+    @Inject
     public NetworkStatus(Context appContext) {
         Toothpick.inject(this, Toothpick.openScope(IConstant.TOOTH_PICK_SCOPE));
         connectivityManager = (ConnectivityManager) appContext.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -35,21 +35,21 @@ public class NetworkStatus {
         connectivityManager.registerNetworkCallback(networkRequest, new ConnectivityManager.NetworkCallback(){
             @Override
             public void onAvailable(@NonNull Network network) {
-                connectedLiveData.postValue(true);
+                connected = true;
                 Log.d(TAG, "onAvailable: ");
             }
 
             @Override
             public void onLost(@NonNull Network network) {
-                connectedLiveData.postValue(false);
+                connected = false;
                 Log.d(TAG, "onLost: ");
             }
 
         });
     }
 
-    public LiveData<Boolean> isConnectedLiveData(){
-        return connectedLiveData;
+    public boolean isConnected(){
+        return connected;
     }
 
 }

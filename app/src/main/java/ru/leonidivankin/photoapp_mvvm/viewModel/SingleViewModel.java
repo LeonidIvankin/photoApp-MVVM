@@ -21,6 +21,8 @@ import ru.leonidivankin.photoapp_mvvm.model.api.RetrofitApi;
 import ru.leonidivankin.photoapp_mvvm.model.entity.Hit;
 import ru.leonidivankin.photoapp_mvvm.model.entity.Photo;
 import ru.leonidivankin.photoapp_mvvm.model.utils.IConstant;
+import ru.leonidivankin.photoapp_mvvm.model.utils.NetworkStatus;
+import ru.leonidivankin.photoapp_mvvm.view.EMessage;
 import toothpick.Scope;
 import toothpick.Toothpick;
 
@@ -30,16 +32,24 @@ public class SingleViewModel extends ViewModel {
 
     @Inject
     RetrofitApi retrofitApi;
+    @Inject
+    NetworkStatus networkStatus;
 
     public SingleViewModel() {
         Toothpick.inject(this, Toothpick.openScope(IConstant.TOOTH_PICK_SCOPE));
     }
 
     private SingleLiveEvent<Integer> hitIdLiveData = new SingleLiveEvent<>();
+    private SingleLiveEvent<Integer> eMessageLiveData = new SingleLiveEvent<>();
     private MutableLiveData<List<Hit>> hitListLiveData = new MutableLiveData<>();
+
 
     public LiveData<Integer> getHitId() {
         return hitIdLiveData;
+    }
+
+    public SingleLiveEvent<Integer> getEMessageLiveData() {
+        return eMessageLiveData;
     }
 
     public void setHitId(int hitId) {
@@ -76,6 +86,9 @@ public class SingleViewModel extends ViewModel {
                 }
             } else {
                 Log.e(TAG, "getPhoto: " + resource.getError());
+                if(!networkStatus.isConnected()){
+                    eMessageLiveData.setValue(EMessage.NETWORK_IS_NOT_AVAILABLE);
+                }
             }
 
             return new ArrayList<>();

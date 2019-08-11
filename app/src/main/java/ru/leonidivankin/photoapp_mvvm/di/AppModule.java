@@ -17,6 +17,6 @@ public class AppModule extends Module {
 
     public AppModule(Context appContext) {
         bind(RetrofitApi.class).toInstance(new RetrofitApi(new Gson()));
-//        bind(NetworkStatus.class).toInstance(new NetworkStatus(appContext));
+        bind(NetworkStatus.class).toInstance(new NetworkStatus(appContext));
     }
 }

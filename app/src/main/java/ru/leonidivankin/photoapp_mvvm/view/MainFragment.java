@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
@@ -13,11 +14,14 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import javax.inject.Inject;
+
 import ru.leonidivankin.photoapp_mvvm.R;
 import ru.leonidivankin.photoapp_mvvm.databinding.FragmentMainBinding;
 import ru.leonidivankin.photoapp_mvvm.model.utils.IConstant;
 import ru.leonidivankin.photoapp_mvvm.model.utils.NetworkStatus;
 import ru.leonidivankin.photoapp_mvvm.viewModel.SingleViewModel;
+import toothpick.Toothpick;
 
 public class MainFragment extends Fragment {
 
@@ -28,12 +32,16 @@ public class MainFragment extends Fragment {
     private PhotoAdapter adapter;
 
 
+
+
     public MainFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        Toothpick.inject(this, Toothpick.openScope(IConstant.TOOTH_PICK_SCOPE));
 
         viewModel = ViewModelProviders.of(getActivity()).get(SingleViewModel.class);
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false);
@@ -44,9 +52,9 @@ public class MainFragment extends Fragment {
             adapter.notifyDataSetChanged();
         });
 
-        NetworkStatus networkStatus = new NetworkStatus(getContext());
-        networkStatus.isConnectedLiveData().observe(this, connected -> {
-            Log.d(TAG, "onCreateView: " + connected);
+        viewModel.getEMessageLiveData().observe(this, eMessage -> {
+            String message = getString(eMessage);
+            Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
         });
 
         return binding.getRoot();
@@ -60,5 +68,6 @@ public class MainFragment extends Fragment {
         adapter = new PhotoAdapter(viewModel);
         recyclerView.setAdapter(adapter);
     }
+
 
 }
