@@ -19,21 +19,7 @@ public class BindingAdapters {
 
     @BindingAdapter({"photoUrl"})
     public static void loadPhoto(ImageView imageView, String url) {
-        EspressoIdlingResource.increment();
         Glide.with(imageView.getContext())
-                .addDefaultRequestListener(new RequestListener<Object>() {
-                    @Override
-                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Object> target, boolean isFirstResource) {
-                        EspressoIdlingResource.decrement();
-                        return false;
-                    }
-
-                    @Override
-                    public boolean onResourceReady(Object resource, Object model, Target<Object> target, DataSource dataSource, boolean isFirstResource) {
-                        EspressoIdlingResource.decrement();
-                        return false;
-                    }
-                })
                 .load(url)
                 .into(imageView);
     }
