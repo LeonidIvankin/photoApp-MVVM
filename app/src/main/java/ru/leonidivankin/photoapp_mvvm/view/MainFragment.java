@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import ru.leonidivankin.photoapp_mvvm.R;
 import ru.leonidivankin.photoapp_mvvm.databinding.FragmentMainBinding;
+import ru.leonidivankin.photoapp_mvvm.idlingResource.EspressoIdlingResource;
 import ru.leonidivankin.photoapp_mvvm.model.utils.IConstant;
 import ru.leonidivankin.photoapp_mvvm.viewModel.SingleViewModel;
 
@@ -53,6 +54,7 @@ public class MainFragment extends Fragment {
         GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), IConstant.RECYCLER_COLUMN_COUNT);
         recyclerView.setLayoutManager(layoutManager);
 
+        //todo toothpick
         adapter = new PhotoAdapter(viewModel);
         recyclerView.setAdapter(adapter);
     }

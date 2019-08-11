@@ -15,6 +15,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import ru.leonidivankin.photoapp_mvvm.idlingResource.EspressoIdlingResource;
 import ru.leonidivankin.photoapp_mvvm.model.api.Resource;
 import ru.leonidivankin.photoapp_mvvm.model.api.RetrofitApi;
 import ru.leonidivankin.photoapp_mvvm.model.entity.Hit;
@@ -46,7 +47,9 @@ public class SingleViewModel extends ViewModel {
     }
 
     public LiveData<Map<Integer, Hit>> getHitList() {
+        EspressoIdlingResource.increment();
         return Transformations.map(hitListLiveData, hitList -> {
+            EspressoIdlingResource.decrement();
             Map<Integer, Hit> hitMap = new HashMap<>();
             for (Hit hit : hitList) {
                 hitMap.put(hit.id, hit);
@@ -60,10 +63,11 @@ public class SingleViewModel extends ViewModel {
     }
 
     public LiveData<List<Hit>> getPhoto() {
+        EspressoIdlingResource.increment();
         LiveData<Resource<Photo>> photoLiveData = retrofitApi.requestServer(IConstant.PIXABAY_KEY);
 
         return Transformations.map(photoLiveData, resource -> {
-
+            EspressoIdlingResource.decrement();
             if (resource.isSuccess()) {
                 Photo photo = resource.getResource();
                 if (photo != null) {
