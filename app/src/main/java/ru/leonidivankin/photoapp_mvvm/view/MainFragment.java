@@ -54,7 +54,6 @@ public class MainFragment extends Fragment {
         GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), IConstant.RECYCLER_COLUMN_COUNT);
         recyclerView.setLayoutManager(layoutManager);
 
-        //todo toothpick
         adapter = new PhotoAdapter(viewModel);
         recyclerView.setAdapter(adapter);
     }

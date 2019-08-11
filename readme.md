@@ -25,11 +25,11 @@ Room
 +ошибка при повороте экрана
 +Application namespace for attribute app:photoUrl will be ignored.
 
--Написать тесты
-    -Mockito
-    espresso
-    robolectric
--todo
++Написать тесты
+    --Mockito
+    +espresso
+    --robolectric
++todo
 -обработать основные ошибки
 -minSdkVersion 18
 -удалить неиспользуемые ресуры
