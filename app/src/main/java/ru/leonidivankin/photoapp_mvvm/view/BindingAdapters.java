@@ -30,7 +30,7 @@ public class BindingAdapters {
                     @Override
                     public void onError(Exception e) {
                         EspressoIdlingResource.decrement();
-                        Log.d(TAG, "onError: ");
+                        Log.e(TAG, "onError: " + e);
                     }
                 });
     }

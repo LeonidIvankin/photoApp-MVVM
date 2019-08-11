@@ -2,6 +2,7 @@ package ru.leonidivankin.photoapp_mvvm.view;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,15 +10,13 @@ import android.view.ViewGroup;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import ru.leonidivankin.photoapp_mvvm.R;
 import ru.leonidivankin.photoapp_mvvm.databinding.FragmentMainBinding;
-import ru.leonidivankin.photoapp_mvvm.idlingResource.EspressoIdlingResource;
 import ru.leonidivankin.photoapp_mvvm.model.utils.IConstant;
+import ru.leonidivankin.photoapp_mvvm.model.utils.NetworkStatus;
 import ru.leonidivankin.photoapp_mvvm.viewModel.SingleViewModel;
 
 public class MainFragment extends Fragment {
@@ -45,6 +44,10 @@ public class MainFragment extends Fragment {
             adapter.notifyDataSetChanged();
         });
 
+        NetworkStatus networkStatus = new NetworkStatus(getContext());
+        networkStatus.isConnectedLiveData().observe(this, connected -> {
+            Log.d(TAG, "onCreateView: " + connected);
+        });
 
         return binding.getRoot();
     }
